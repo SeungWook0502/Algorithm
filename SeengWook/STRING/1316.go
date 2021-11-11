@@ -5,30 +5,38 @@ import (
 	"os"
 )
 func main(){
-	var N_list []string = make([]string, 0)
-	var N, C, P int = 0, 0, 0
+	var N, C int = 0, 0
 	var S string
 	Read := bufio.NewReader(os.Stdin)
 
 	fmt.Scanln(&N)
 
+	S_list := make([]string,0)
+
 	for i:=0; i<N; i++{
 		fmt.Fscanln(Read,&S)
-		T := true
-		for j:=0; j<len(S); j++{
-			if len(N_list) == 0{
-				N_list = append(N_list, string(S[i]))
+		S_list = append(S_list,S)
+	}
+	for i:=0; i<N; i++{
+		var P int = 0
+		T_list := make([]string,0)
+		for j:=0; j<len(S_list[i]); j++{
+			if 0 == len(T_list){
+				T_list = append(T_list,string(S_list[i][j]))
 				P++
+			}else if string(S_list[i][j]) == T_list[P-1]{
 			}else{
-				for _,e := range N_list{
-					if string(S[i]) == e{
-						if P != (i-1){
-							T = false
-						}
-					}else{
-						N_list = append(N_list,string(S[i]))
-						P++
-					}
+				T_list = append(T_list,string(S_list[i][j]))
+				P++
+			}
+		}
+		T := true
+		for j:=0; j<P; j++{
+			for l:=0; l<P; l++{
+				// fmt.Println(T_list[j],T_list[l])
+				if T_list[j]==T_list[l] && l!=j{
+					T = false
+					break
 				}
 			}
 			if !T{
@@ -39,5 +47,5 @@ func main(){
 			C++
 		}
 	}
-	fmt.Print(C,N_list)
+	fmt.Print(C)
 }
