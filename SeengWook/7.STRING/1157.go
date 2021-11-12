@@ -1,10 +1,16 @@
 package main
-import "fmt"
+import (
+	"fmt"
+	"bufio"
+	"os"
+)
 func main(){
 	Arpa := make([]int,26)
 	for i:=0;i<26;i++{ Arpa[i] = 0 }
 	var S string
-	fmt.Scan(&S)
+	Read := bufio.NewReader(os.Stdin)
+	fmt.Fscanln(Read,&S)
+	// fmt.Scanln(&S)
 
 	B := []byte(S)
 	for _, e := range B{
