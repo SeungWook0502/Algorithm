@@ -5,16 +5,17 @@ import java.io.OutputStreamWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class Main_11021 {
+public class Main_10952 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
 
-        int T = Integer.parseInt(br.readLine());
-        for(int i=0; i<T; i++){
+        while(true){
             st = new StringTokenizer(br.readLine());
-            bw.write("Case #"+(i+1)+": "+(Integer.parseInt(st.nextToken())+Integer.parseInt(st.nextToken()))+"\n");
+            String a = new String(st.nextToken()), b = new String(st.nextToken());
+            if(a.equals("0")&&b.equals("0")) break;
+            else  bw.write((Integer.parseInt(a)+Integer.parseInt(b))+"\n");
         }
 
         bw.flush();

@@ -4,6 +4,7 @@ public class Main_10950 {
         Scanner sc = new Scanner(System.in);
 
         int cnt = sc.nextInt();
+        sc.close();
         for(int i=0; i<cnt; i++){
             int a = sc.nextInt(), b = sc.nextInt();
             System.out.println(a+b);
