@@ -9,15 +9,16 @@ public class Main_10871 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
-        st = new StringTokenizer(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(st.nextToken());
-        int X = Integer.parseInt(br.readLine());
+        int X = Integer.parseInt(st.nextToken());
+        int[] A = new int[N];
+
+        st = new StringTokenizer(br.readLine());
         for(int i=0; i<N; i++){   // 수열 A 입력받기
-            st = new StringTokenizer(br.readLine());
-            String A = new String(st.nextToken());
-            if(Integer.parseInt(A)<X) System.out.printf(A+" ");
+            A[i] = Integer.parseInt(st.nextToken());
+            if(A[i]<X) bw.write(A[i]+" ");
         }
 
 

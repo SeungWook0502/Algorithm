@@ -11,11 +11,12 @@ public class Main_10951 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
 
+       
         while(true){
             st = new StringTokenizer(br.readLine());
-            String a = new String(st.nextToken()), b = new String(st.nextToken());
-            if(a.equals("0")&&b.equals("0")) break;
-            else  bw.write((Integer.parseInt(a)+Integer.parseInt(b))+"\n");
+            if(st.nextToken() == null) break;
+            int A = Integer.parseInt(st.nextToken()), B = Integer.parseInt(st.nextToken());
+            bw.write(A+B);
         }
 
         bw.flush();
