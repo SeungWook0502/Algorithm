@@ -5,7 +5,7 @@ public class Main_4673 {
         }
     }
     public static int d (int number){
-
-        return ;
+        
+        return 1;
     }
 }
