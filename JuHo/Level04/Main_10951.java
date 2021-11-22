@@ -1,28 +1,20 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.IOException;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Main_10951 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-       
-        while(true){
-            st = new StringTokenizer(br.readLine());
-            if(st.nextToken() == null) break;
-            int A = Integer.parseInt(st.nextToken()), B = Integer.parseInt(st.nextToken());
-            bw.write(A+B);
+        try{
+            while(true){
+                int n = sc.nextInt(), m = sc.nextInt();
+                System.out.println(n+m);
+            }
+        }catch(Exception e){
         }
-
-        bw.flush();
-        bw.close();
+        
     }
 }
+
 
 // 끝나는 조건을 안알려줬는데????
 // 어디서 끝내야하나?
