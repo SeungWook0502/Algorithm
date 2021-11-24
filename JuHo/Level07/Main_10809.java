@@ -16,7 +16,7 @@ public class Main_10809 {
                 else if(j==str.length()-1){
                     System.out.printf("-1 ");
                 } 
-            }
+            }//lll
         }
         
     }
