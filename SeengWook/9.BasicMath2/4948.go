@@ -1,20 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"bufio"
+	"os"
+)
 
 func main() {
-	var m, n int
-	fmt.Scan(&m, &n)
-	a := make([]bool, n+1)
-	for i := 2; i <= n; i++ {
-		if a[i] {
-			continue
+	var N int = 1
+	Read := bufio.NewReader(os.Stdin)
+	Write := bufio.NewWriter(os.Stdout)
+
+	for N!=0{
+		fmt.Fscan(Read,&N)
+		var C int = 0
+		for i:=N; i<=2*N; i++{
+			var J bool = true
+			for j:=2; j<=i/2 && i!=0; j++{
+				if i%j==0{
+					J = false
+				}
+			}
+			if J{
+				C++
+			}
 		}
-		if i >= m {
-			fmt.Println(i)
-		}
-		for j := i * 2; j <= n; j += i {
-			a[j] = true
+		if N!=0{
+			fmt.Fprintln(Write,C)
 		}
 	}
+	Write.Flush()
 }
