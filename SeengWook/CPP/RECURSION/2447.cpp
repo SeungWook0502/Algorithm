@@ -1,38 +1,32 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-char *star(int n);
+void starLine(int n, int x, int y);
 
 int main(){
 		
 	int n;
-	char *r;
 	cin >> n;
-
-	r = star(n);
-	
-	cout << r;	
+	for(int i=0; i<n; i++){
+		for(int j=0; j<n; j++){
+			starLine(n,i,j);
+		}
+		cout << '\n';
+	}
 	
 	return 0;
 }
 
-char *star(int n){
-	
-	if(n==1){
-		char a = '*';
-		return &a;
+void starLine(int n, int x, int y){
+
+	if (x / n % 3 == 1 && y / n % 3 == 1) {
+		cout << " ";
 	}
-	char rec[3][3];
-	char *t;
-	t = star(n/3);
-	
-	for(int i=0; i<3; i++){
-		for(int j=0; j<3; j++){
-			rec[i][j] = *t;
-		}
+	else if (n / 3 == 0) {
+		cout << "*";
 	}
-	
-	return rec;
+	else {
+		starLine(n/3, x, y);
+	}
 }
