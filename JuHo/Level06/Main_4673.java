@@ -1,37 +1,33 @@
-import java.util.ArrayList;
 
 public class Main_4673 {
     public static void main(String[] args) {
-        
-        ArrayList<Integer> numarr = new ArrayList<Integer>();
+        boolean[] check = new boolean[100001];
 
-        int n=1;
-        while(true){
-            if(func(n)<=10000){
-                numarr.add(n, func(n));
-                n++;
+        for(int i = 1; i < 10001; i++){
+            int self_num = selfNum(i);
+
+            if(self_num < 10001){
+                check[self_num] = true;
             }
-            else break;
-
         }
         
-        int j = 1;
-        for(int i=1;i<n;i++){
-            if(numarr.get(i) != j) {
-                System.out.println(j);
-                j++;
+        for(int i=1;i<10001;i++){
+            if(!check[i]){
+                System.out.println(i);
             }
-            j++;
         }
 
     }
 
-    public static int func(int num){
-        int a=num/1000, b=(num/1000)%100, c=(num/100)%10, d=num/10;
-        int res = 0;
-
-        res = num + a + b + c + d;
+    public static int selfNum(int num){
+        int sum = num;
         
-        return res;
+        while(num!=0){
+            sum = sum + (num%10);
+            num = num/10;
+        }
+
+        return sum;
     }
+
 }
