@@ -31,7 +31,6 @@ int *fibo(int n, int list[]){
 	temp = t[0];
 	t[0] = t[1];
 	t[1] = temp+t[0];
-	cout << t[1] << endl;
 	
 	return t;
 }
