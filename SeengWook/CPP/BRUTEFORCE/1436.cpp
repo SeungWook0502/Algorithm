@@ -8,17 +8,17 @@ int main(){
 	int n;
 	cin >> n;
 
-	int f=0,b=0;
-	for(int i=0; i<n; i++){
-		if(stoi(to_string(f)+"666") < stoi("666"+to_string(b))){
-			cout << stoi(to_string(f)+"666") << '\n';
-			f++;
+	int i = 666;
+	int cnt = 0;
+
+	while(true){
+		if(to_string(i).find("666") != string::npos){
+			cnt++;
+			if(cnt==n) break;
 		}
-		else{
-			cout << stoi("666"+to_string(b)) << '\n';
-			b++;
-		}
+		i++;
 	}
+	cout << i;
 
 	return 0;
 }
