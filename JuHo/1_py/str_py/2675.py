@@ -7,5 +7,5 @@ for _ in range(t):
     
     for i in range(len(s)):
         p = p + (s[i] * r)
-        
-print(p)
+    print(p)
+    
