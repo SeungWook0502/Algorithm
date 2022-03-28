@@ -19,22 +19,16 @@ int main(){
 		int age;
 		string name;
 		cin >> age >> name;
-		if(str.empty()){
-			str.assign(1, pair<int, string>(age, name));
-		}
-		else{
-			str.push_back(pair<int, string>(age, name));
-		}
+		str.push_back(pair<int, string>(age, name));
 	}
 
-	sort(str.begin(), str.end(), str_compare);
+	stable_sort(str.begin(), str.end(), str_compare);
 
 	for(auto i : str) cout << i.first << ' ' << i.second << '\n';
+
 	return 0;
 }
 
 bool str_compare(const pair<int, string> & a, const pair<int, string> & b){
-	if(a.first < b.first) return true;
-	else if(a.first == b.first) return true;
-	return false;
+	return a.first < b.first;
 }
