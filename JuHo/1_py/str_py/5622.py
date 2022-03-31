@@ -21,6 +21,6 @@ def convert(eng):
 time = 0  
 word = input()
 for i in range(len(word)):
-    time += (convert(word[i])+2)
+    time += (convert(word[i])+1)
     
 print(time)
