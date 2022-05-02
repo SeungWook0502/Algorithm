@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
+
+#define max 1000001
 
 int main(){
 
@@ -10,13 +11,11 @@ int main(){
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-	long long cnt;
-	vector<int> n_list(1000000,0);
+	vector<ll> n_list(max,1);
 
-	for(int i=1; i<1000000; i++){
-
-		for(int j=1; j<=i; j++){
-			n_list[i-1] += (i/j)*j;
+	for(int i=2; i<max; i++){
+		for(int j=1; j*i<max; j++){
+			n_list[i*j] += i;
 		}
 	}
 
