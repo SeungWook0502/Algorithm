@@ -1,58 +1,29 @@
 #include <iostream>
-#include <vector>
-#include <utility>
 #include <algorithm>
+#include <utility>
 
 using namespace std;
 
-bool cmp_price(const pair<int, int> & a, const pair<int, int> & b);
+int bag_max, n, result;
+pair<int,int> bag[1000000];
 
 int main(){
 
-	ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    cin >> bag_max >> n;
 
-	int bag_max, n;
-	cin >> bag_max >> n;
-	vector<pair<int, int>> gem_list;
+    for(int i=0; i<n; i++){
+        int gem, price;
+        cin >> gem >> price;
+        bag[i]={price, gem};
+    }
 
-	for(int i=0; i<n; i++){
-		int gem_weight, gem_price;
-		cin >> gem_weight >> gem_price;
+    sort(bag, bag+n);
 
-		gem_list.push_back(make_pair(gem_weight, gem_price));
-	}
+    for(int i = n-1; i >= 0, bag_max>0; i--){
+        int k = min(bag[i].second, bag_max);
+        bag_max -= k;
+        result += k * bag[i].first;
+    }
 
-	// sort(gem_list.begin(), gem_list.end(), cmp_price);
-
-	int bag_price = 0;
-	for(int i=0; i<gem_list.size(); i++){
-		if(bag_max <= 0) break;
-
-		if(gem_list[i].first <= bag_max){
-			bag_price += gem_list[i].first * gem_list[i].second;
-			bag_max -= gem_list[i].first;
-			gem_list.erase(gem_list.begin()+i);
-			i--;
-			gem_list.shrink_to_fit();
-		}
-		else{
-			bag_price += bag_max * gem_list[i].second;
-			bag_max = 0;
-		}
-	}
-
-	cout << bag_price;
-
-	return 0;
-}
-
-bool cmp_price(const pair<int, int> & a, const pair<int, int> & b){
-
-	if(a.second > b.second) return true;
-	else{
-		if(a.first < b.first) return true;
-	}
-	return false;
+    cout << result;
 }
