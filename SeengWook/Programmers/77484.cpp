@@ -16,7 +16,7 @@ vector<int> solution(vector<int> lottos, vector<int> win_nums) {
 
     for(int i=0; i<lottos.size(); i++){
         for(int j=0; j<lottos.size(); j++){
-            if(lottos[i] == win_nums[j]){
+            if(lottos[i] == win_nums[j]){`
                 eqls++;
                 break;
             }
